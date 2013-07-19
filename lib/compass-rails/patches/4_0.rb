@@ -2,6 +2,7 @@ require 'compass-rails/patches/sass_importer'
 require 'compass-rails/patches/sprite_importer'
 module Sass::Script::Functions
   def generated_image_url(path, only_path = nil)
+    path = Sass::Script::String.new("assets/#{path.to_s}")
     asset_url(path)
   end
 end
